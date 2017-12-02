@@ -927,6 +927,10 @@ func (t *Time) GobDecode(data []byte) error {
 	return t.UnmarshalBinary(data)
 }
 
+func Until(t Time) Duration {
+	return t.Sub(Now())
+}
+
 // MarshalJSON implements the json.Marshaler interface.
 // The time is a quoted string in RFC 3339 format, with sub-second precision added if present.
 func (t Time) MarshalJSON() ([]byte, error) {
